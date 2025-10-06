@@ -1,0 +1,10 @@
+# Supabase Configuration
+SUPABASE_URL=your_actual_supabase_url_here
+SUPABASE_ANON_KEY=your_actual_supabase_anon_key_here
+
+# Server Configuration
+PORT=10000
+NODE_ENV=production
+
+# Render.com URL
+RENDER_EXTERNAL_URL=https://health-app-backend-rgb2.onrender.com
