@@ -6,7 +6,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// إعداد Supabase
+// Supabase setup
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -15,7 +15,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(cors());
 app.use(express.json());
 
-// Route الأساسية
+// Main route
 app.get('/', (req, res) => {
   res.json({
     message: 'Hello! Health app working successfully',
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
   });
 });
 
-// جلب جميع المرضى
+// Get all patients
 app.get('/api/patients', async (req, res) => {
   try {
     const { data, error } = await supabase
@@ -37,7 +37,7 @@ app.get('/api/patients', async (req, res) => {
   }
 });
 
-// إضافة مريض جديد
+// Add new patient
 app.post('/api/patients', async (req, res) => {
   try {
     const { user_id, full_name } = req.body;
@@ -54,7 +54,7 @@ app.post('/api/patients', async (req, res) => {
   }
 });
 
-// بدء الخادم
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
